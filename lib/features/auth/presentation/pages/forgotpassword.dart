@@ -4,6 +4,7 @@ import 'package:clean_msib/core/widget/alertdialog.dart';
 import 'package:clean_msib/core/widget/custombutton.dart';
 import 'package:clean_msib/core/widget/inputwidget.dart';
 import 'package:clean_msib/features/auth/presentation/pages/login.dart';
+import 'package:clean_msib/features/auth/presentation/pages/otpscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -79,13 +80,21 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 fontWeight: AppFont.semibold,
                 backgroundColor: ColorApp.primary,
                 textColor: Colors.white,
-                onPressed: () {
+                onPressed: () async {
                   // Call the showDialog function with the CustomAlertDialog as the builder
-                  showDialog(
+                  await showDialog(
                     context: context,
                     builder: (BuildContext context) {
                       return CustomAlertDialog();
                     },
+                  );
+
+                  // Setelah dialog ditutup, lakukan navigasi ke halaman OTP
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            OtpScreen()), // Ganti 'OTPPage()' dengan halaman OTP yang sesuai
                   );
                 },
               ),

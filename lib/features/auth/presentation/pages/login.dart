@@ -119,7 +119,7 @@ class _LoginState extends State<Login> {
                 onPressed: () {},
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Center(
@@ -129,7 +129,7 @@ class _LoginState extends State<Login> {
                 backgroundColor: ColorApp.abu2,
                 textColor: Colors.black,
                 onPressed: () {},
-                iconImage: AssetImage('assets/icon/googleicon.png'),
+                iconImage: const AssetImage('assets/icon/googleicon.png'),
               ),
             ),
             Padding(
