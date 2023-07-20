@@ -5,6 +5,7 @@ import 'package:clean_msib/core/widget/custombutton.dart';
 import 'package:clean_msib/core/widget/customiconbutton.dart';
 import 'package:clean_msib/core/widget/inputpasswordwidget.dart';
 import 'package:clean_msib/core/widget/inputwidget.dart';
+import 'package:clean_msib/features/auth/presentation/pages/forgotpassword.dart';
 import 'package:clean_msib/features/auth/presentation/pages/register.dart';
 import 'package:clean_msib/features/intro/presentation/pages/boarding1.dart';
 import 'package:flutter/material.dart';
@@ -86,13 +87,23 @@ class _LoginState extends State<Login> {
               alignment: Alignment.centerRight,
               child: Padding(
                 padding: const EdgeInsets.only(right: 10),
-                child: Text(
-                  "Recovery Password", // Corrected the spelling to "Recovery Password"
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ForgotPassword(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "Recovery Password", // Corrected the spelling to "Recovery Password"
 
-                  style: GoogleFonts.poppins(
-                      fontSize: 12.0,
-                      fontWeight: AppFont.regular,
-                      color: ColorApp.darkabu), // Change the color as desired
+                    style: GoogleFonts.poppins(
+                        fontSize: 12.0,
+                        fontWeight: AppFont.regular,
+                        color: ColorApp.darkabu), // Change the color as desired
+                  ),
                 ),
               ),
             ),

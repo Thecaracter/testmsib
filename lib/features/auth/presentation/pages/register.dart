@@ -111,7 +111,7 @@ class _RegisterState extends State<Register> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 100, bottom: 10),
+              padding: const EdgeInsets.only(top: 75, bottom: 10),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -137,7 +137,7 @@ class _RegisterState extends State<Register> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const Register(),
+                                    builder: (context) => const Login(),
                                   ),
                                 );
                               },
