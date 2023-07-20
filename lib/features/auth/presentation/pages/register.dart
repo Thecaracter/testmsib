@@ -5,20 +5,19 @@ import 'package:clean_msib/core/widget/custombutton.dart';
 import 'package:clean_msib/core/widget/customiconbutton.dart';
 import 'package:clean_msib/core/widget/inputpasswordwidget.dart';
 import 'package:clean_msib/core/widget/inputwidget.dart';
-import 'package:clean_msib/features/auth/presentation/pages/register.dart';
-import 'package:clean_msib/features/intro/presentation/pages/boarding1.dart';
-import 'package:flutter/material.dart';
+import 'package:clean_msib/features/auth/presentation/pages/login.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class Register extends StatefulWidget {
+  const Register({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Register> createState() => _RegisterState();
 }
 
-class _LoginState extends State<Login> {
+class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +35,7 @@ class _LoginState extends State<Login> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const OnBoarding1(),
+                      builder: (context) => const Login(),
                     ),
                   ); // Aksi yang akan dijalankan ketika tombol ditekan
                 },
@@ -48,7 +47,7 @@ class _LoginState extends State<Login> {
             ),
             Center(
               child: Text(
-                "Hello Again!",
+                "Register Account",
                 style: GoogleFonts.raleway(
                     fontSize: 32.0, fontWeight: AppFont.bold),
               ),
@@ -70,6 +69,10 @@ class _LoginState extends State<Login> {
             ),
             Padding(
               padding: const EdgeInsets.all(5.0),
+              child: InputWidget(hintText: "Masukan Nama", labelText: "Nama"),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
               child: InputWidget(
                 hintText: "loremipsum@gmail.com",
                 labelText: "Email Address",
@@ -82,38 +85,24 @@ class _LoginState extends State<Login> {
                 labelText: "Password",
               ),
             ),
-            Container(
-              alignment: Alignment.centerRight,
-              child: Padding(
-                padding: const EdgeInsets.only(right: 10),
-                child: Text(
-                  "Recovery Password", // Corrected the spelling to "Recovery Password"
-
-                  style: GoogleFonts.poppins(
-                      fontSize: 12.0,
-                      fontWeight: AppFont.regular,
-                      color: ColorApp.darkabu), // Change the color as desired
-                ),
-              ),
-            ),
             const SizedBox(
               height: 20,
             ),
             Center(
               child: CustomButton(
-                text: "Sign In",
+                text: "Sign Up",
                 fontWeight: AppFont.semibold,
                 backgroundColor: ColorApp.primary,
                 textColor: Colors.white,
                 onPressed: () {},
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Center(
               child: CustomIconButton(
-                text: "Sign In With Google",
+                text: "Sign Up With Google",
                 fontWeight: AppFont.semibold,
                 backgroundColor: ColorApp.abu2,
                 textColor: Colors.black,
@@ -122,14 +111,14 @@ class _LoginState extends State<Login> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 120, bottom: 10),
+              padding: const EdgeInsets.only(top: 100, bottom: 10),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     RichText(
                       text: TextSpan(
-                        text: "New User? ",
+                        text: "Already Have Account? ",
                         style: GoogleFonts.raleway(
                           fontSize: 16.0,
                           fontWeight: AppFont.medium,
@@ -137,7 +126,7 @@ class _LoginState extends State<Login> {
                         ),
                         children: [
                           TextSpan(
-                            text: "Create Account",
+                            text: "Log In",
                             style: GoogleFonts.raleway(
                               fontSize: 16.0,
                               fontWeight: AppFont.medium,
