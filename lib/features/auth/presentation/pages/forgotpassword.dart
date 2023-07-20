@@ -1,5 +1,6 @@
 import 'package:clean_msib/core/constants/color.dart';
 import 'package:clean_msib/core/constants/fontweight.dart';
+import 'package:clean_msib/core/widget/alertdialog.dart';
 import 'package:clean_msib/core/widget/custombutton.dart';
 import 'package:clean_msib/core/widget/inputwidget.dart';
 import 'package:clean_msib/features/auth/presentation/pages/login.dart';
@@ -78,7 +79,15 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 fontWeight: AppFont.semibold,
                 backgroundColor: ColorApp.primary,
                 textColor: Colors.white,
-                onPressed: () {},
+                onPressed: () {
+                  // Call the showDialog function with the CustomAlertDialog as the builder
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return CustomAlertDialog();
+                    },
+                  );
+                },
               ),
             ),
           ],
