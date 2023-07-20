@@ -81,7 +81,7 @@ class _OtpScreenState extends State<OtpScreen> {
               child: CustomButton(
                 text: "Verify",
                 backgroundColor: ColorApp.primary,
-                textColor: Colors.white,
+                textColor: ColorApp.putih,
                 onPressed: () {},
               ),
             ),

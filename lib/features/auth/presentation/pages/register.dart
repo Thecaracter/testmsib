@@ -93,7 +93,7 @@ class _RegisterState extends State<Register> {
                 text: "Sign Up",
                 fontWeight: AppFont.semibold,
                 backgroundColor: ColorApp.primary,
-                textColor: Colors.white,
+                textColor: ColorApp.putih,
                 onPressed: () {},
               ),
             ),

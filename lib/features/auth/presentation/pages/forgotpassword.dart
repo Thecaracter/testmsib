@@ -79,7 +79,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 text: "Reset Password",
                 fontWeight: AppFont.semibold,
                 backgroundColor: ColorApp.primary,
-                textColor: Colors.white,
+                textColor: ColorApp.putih,
                 onPressed: () async {
                   // Call the showDialog function with the CustomAlertDialog as the builder
                   await showDialog(

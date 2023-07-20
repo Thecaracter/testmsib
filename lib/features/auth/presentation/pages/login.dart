@@ -8,6 +8,7 @@ import 'package:clean_msib/core/widget/inputwidget.dart';
 import 'package:clean_msib/features/auth/presentation/pages/forgotpassword.dart';
 import 'package:clean_msib/features/auth/presentation/pages/register.dart';
 import 'package:clean_msib/features/intro/presentation/pages/boarding1.dart';
+import 'package:clean_msib/features/profile/presentation/pages/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -115,8 +116,15 @@ class _LoginState extends State<Login> {
                 text: "Sign In",
                 fontWeight: AppFont.semibold,
                 backgroundColor: ColorApp.primary,
-                textColor: Colors.white,
-                onPressed: () {},
+                textColor: ColorApp.putih,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Profile(),
+                    ),
+                  );
+                },
               ),
             ),
             const SizedBox(
