@@ -18,7 +18,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double buttonWidth =
-        MediaQuery.of(context).size.width * 0.8; // Setengah dari lebar layar
+        MediaQuery.of(context).size.width * 0.9; // Setengah dari lebar layar
 
     return ElevatedButton(
       onPressed: onPressed,
@@ -35,40 +35,6 @@ class CustomButton extends StatelessWidget {
         style: TextStyle(
           color: textColor,
           fontWeight: fontWeight, // Gunakan fontWeight yang diberikan
-        ),
-      ),
-    );
-  }
-}
-
-class RoundedIconButton extends StatelessWidget {
-  final VoidCallback onPressed;
-  final Color backgroundColor;
-  final Color iconColor;
-
-  const RoundedIconButton({
-    super.key,
-    required this.onPressed,
-    required this.backgroundColor,
-    required this.iconColor,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onPressed,
-      child: Container(
-        width: 40,
-        height: 40,
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          shape: BoxShape.circle,
-        ),
-        child: Center(
-          child: Icon(
-            Icons.arrow_back_ios_new,
-            color: iconColor,
-          ),
         ),
       ),
     );
