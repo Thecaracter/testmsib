@@ -5,7 +5,7 @@ import 'package:clean_msib/core/widget/fotoprofile.dart';
 import 'package:clean_msib/core/widget/inputpasswordwidget.dart';
 import 'package:clean_msib/core/widget/inputwidget.dart';
 import 'package:clean_msib/features/auth/presentation/pages/forgotpassword.dart';
-import 'package:clean_msib/features/auth/presentation/pages/login.dart';
+import 'package:clean_msib/features/profile/presentation/pages/profile_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -35,15 +35,7 @@ class _ProfileState extends State<Profile> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   BackButtonCustom(
-                    onPressed: () {
-                      // Navigator.pushReplacement(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => const Login(),
-                      //   ),
-                      // );
-                      Navigator.pop(context);
-                    },
+                    onPressed: () {},
                     backgroundColor: ColorApp.abu,
                     iconColor: ColorApp.page,
                   ),
@@ -66,10 +58,17 @@ class _ProfileState extends State<Profile> {
                 photoAsset: "assets/images/profile.png",
                 photoSize: 70.0,
                 iconData: true,
-                onEditPressed: () {},
+                onEditPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProfileDetail(),
+                    ),
+                  );
+                },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Padding(
