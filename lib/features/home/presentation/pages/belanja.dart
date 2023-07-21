@@ -10,6 +10,6 @@ class Belanja extends StatefulWidget {
 class _BelanjaState extends State<Belanja> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold();
   }
 }

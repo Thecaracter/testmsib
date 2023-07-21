@@ -18,14 +18,14 @@ class _BottomNavbarState extends State<BottomNavbar> {
   int currentTab = 0;
 
   final List<Widget> screens = [
-    const Home(),
+    Home(),
     const WishList(),
     const Belanja(),
     const Profile(),
     const Pengingat()
   ];
   final PageStorageBucket bucket = PageStorageBucket();
-  Widget currentScreen = const Home();
+  Widget currentScreen = Home();
 
   @override
   Widget build(BuildContext context) {
@@ -41,9 +41,9 @@ class _BottomNavbarState extends State<BottomNavbar> {
             currentTab = 3;
           });
         },
-        backgroundColor: currentTab == 3 ? ColorApp.page : ColorApp.putih,
+        backgroundColor: currentTab == 3 ? ColorApp.primary : ColorApp.putih,
         child: Icon(
-          CarbonIcons.catalog,
+          CarbonIcons.store,
           size: 24.0,
           color: currentTab == 3 ? ColorApp.putih : Color(0xff87c6e7),
         ),

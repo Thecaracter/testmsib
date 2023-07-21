@@ -1,14 +1,30 @@
+import 'package:awesome_drawer_bar/awesome_drawer_bar.dart';
 import 'package:clean_msib/core/constants/color.dart';
-import 'package:flutter/material.dart';
+import 'package:clean_msib/core/constants/fontweight.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+import 'package:flutter/material.dart';
+import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class MainHome extends StatefulWidget {
+  final VoidCallback ontap;
+  const MainHome({super.key, required this.ontap});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<MainHome> createState() => _MainHomeState();
 }
 
-class _HomeState extends State<Home> {
+class _MainHomeState extends State<MainHome> {
+  int selectedButtonIndex =
+      0; // Index tombol terpilih, awalnya 0 (tombol pertama)
+
+  final List<String> categories = [
+    "All Shoes",
+    "Outdoor",
+    "Tennis",
+  ];
+  List<bool> isFavoriteList = [false, false];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +37,7 @@ class _HomeState extends State<Home> {
               icon: Image.asset('assets/icon/Hamburger.png',
                   width: 24, height: 24),
               onPressed: () {
-                Scaffold.of(context).openDrawer();
+                widget.ontap();
               },
             );
           },
@@ -68,7 +84,7 @@ class _HomeState extends State<Home> {
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
@@ -128,9 +144,364 @@ class _HomeState extends State<Home> {
                 ),
               ],
             ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "Select Category",
+              style: GoogleFonts.raleway(
+                fontWeight: AppFont.semibold,
+                fontSize: 16.0,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: 50,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: categories.length,
+                itemBuilder: (context, index) {
+                  bool isSelected = index == selectedButtonIndex;
+
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedButtonIndex = index;
+                        });
+                      },
+                      child: Container(
+                        width: 120,
+                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                        decoration: BoxDecoration(
+                          color: isSelected ? ColorApp.primary : ColorApp.putih,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Center(
+                          child: Text(
+                            categories[index],
+                            style: TextStyle(
+                              color: isSelected ? Colors.white : Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 5),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      "Popular Shoes", // Corrected the spelling to "Recovery Password"
+                      textAlign: TextAlign.left,
+                      style: GoogleFonts.raleway(
+                        fontSize: 16.0,
+                        fontWeight: AppFont.medium,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      "see all", // Corrected the spelling to "Recovery Password"
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.poppins(
+                        fontSize: 12.0,
+                        fontWeight: AppFont.medium,
+                        color: ColorApp.primary,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: 200,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 2, // Ubah jumlah item sesuai kebutuhan
+                itemBuilder: (context, index) {
+                  return Stack(
+                    children: [
+                      Container(
+                        width: 150,
+                        margin: EdgeInsets.symmetric(horizontal: 10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: ColorApp.putih,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(
+                                  0.2), // Warna dan opacity bayangan
+                              spreadRadius: 2, // Jarak penyebaran bayangan
+                              blurRadius: 5, // Jarak blur bayangan
+                              offset: Offset(0, 3), // Posisi bayangan (x, y)
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 2.0),
+                        child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isFavoriteList[index] = !isFavoriteList[index];
+                            });
+                          },
+                          icon: Icon(
+                            isFavoriteList[index]
+                                ? Icons.favorite
+                                : Icons.favorite_border,
+                            size: 20.0,
+                            color: isFavoriteList[index] ? Colors.red : null,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: 150,
+                        margin: EdgeInsets.symmetric(horizontal: 10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: ColorApp.putih,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: Stack(
+                          children: [
+                            Align(
+                              alignment: Alignment.bottomRight,
+                              child: InkWell(
+                                onTap: () {
+                                  // Handle onTap here
+                                },
+                                child: Container(
+                                  width: 40,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    color: Colors.blue,
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10)),
+                                  ),
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Colors.white,
+                                    size: 24,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8.0),
+                              child: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    isFavoriteList[index] =
+                                        !isFavoriteList[index];
+                                  });
+                                },
+                                icon: Icon(
+                                  isFavoriteList[index]
+                                      ? Icons.favorite
+                                      : Icons.favorite_border,
+                                  size: 20.0,
+                                  color:
+                                      isFavoriteList[index] ? Colors.red : null,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 27, left: 25),
+                        child: Image.asset(
+                          "assets/images/sepatu1.png",
+                          width: 130.0,
+                          height: 130.0,
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20.0, bottom: 10),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment:
+                              CrossAxisAlignment.start, // Set to start here
+                          children: [
+                            Text(
+                              "Best Seller",
+                              textAlign: TextAlign.justify,
+                              style: GoogleFonts.raleway(
+                                color: ColorApp.primary,
+                                fontSize: 14.0,
+                                fontWeight: AppFont.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 5),
+                            Text(
+                              "Nike Jordan",
+                              textAlign: TextAlign.left,
+                              style: GoogleFonts.raleway(
+                                color: ColorApp.darkabu,
+                                fontSize: 16.0,
+                                fontWeight: AppFont.semibold,
+                              ),
+                            ),
+                            const SizedBox(height: 5),
+                            Text(
+                              "Rp 302.000",
+                              style: GoogleFonts.raleway(
+                                color: ColorApp.primary,
+                                fontSize: 14.0,
+                                fontWeight: AppFont.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
     );
+  }
+}
+
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  final _advancedDrawerController = AdvancedDrawerController();
+
+  @override
+  Widget build(BuildContext context) {
+    return AdvancedDrawer(
+      backdrop: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [ColorApp.primary, ColorApp.primary.withOpacity(0.2)],
+          ),
+        ),
+      ),
+      controller: _advancedDrawerController,
+      animationCurve: Curves.easeInOut,
+      animationDuration: const Duration(milliseconds: 300),
+      animateChildDecoration: true,
+      rtlOpening: false,
+      // openScale: 1.0,
+      disabledGestures: false,
+      childDecoration: const BoxDecoration(
+        // NOTICE: Uncomment if you want to add shadow behind the page.
+        // Keep in mind that it may cause animation jerks.
+        // boxShadow: <BoxShadow>[
+        //   BoxShadow(
+        //     color: Colors.black12,
+        //     blurRadius: 0.0,
+        //   ),
+        // ],
+        borderRadius: const BorderRadius.all(Radius.circular(16)),
+      ),
+      child: Scaffold(
+        body: MainHome(
+          ontap: _handleMenuButtonPressed,
+        ),
+      ),
+      drawer: SafeArea(
+        child: Container(
+          child: ListTileTheme(
+            textColor: Colors.white,
+            iconColor: Colors.white,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Container(
+                  width: 128.0,
+                  height: 128.0,
+                  margin: const EdgeInsets.only(
+                    top: 24.0,
+                    bottom: 64.0,
+                  ),
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    color: Colors.black26,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                  ),
+                ),
+                ListTile(
+                  onTap: () {},
+                  leading: Icon(Icons.home),
+                  title: Text('Home'),
+                ),
+                ListTile(
+                  onTap: () {},
+                  leading: Icon(Icons.account_circle_rounded),
+                  title: Text('Profile'),
+                ),
+                ListTile(
+                  onTap: () {},
+                  leading: Icon(Icons.favorite),
+                  title: Text('Favourites'),
+                ),
+                ListTile(
+                  onTap: () {},
+                  leading: Icon(Icons.settings),
+                  title: Text('Settings'),
+                ),
+                Spacer(),
+                DefaultTextStyle(
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.white54,
+                  ),
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(
+                      vertical: 16.0,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _handleMenuButtonPressed() {
+    // NOTICE: Manage Advanced Drawer state through the Controller.
+    // _advancedDrawerController.value = AdvancedDrawerValue.visible();
+    _advancedDrawerController.showDrawer();
   }
 }
