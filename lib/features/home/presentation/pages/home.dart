@@ -1,7 +1,5 @@
-import 'package:awesome_drawer_bar/awesome_drawer_bar.dart';
 import 'package:clean_msib/core/constants/color.dart';
 import 'package:clean_msib/core/constants/fontweight.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -46,14 +44,13 @@ class _MainHomeState extends State<MainHome> {
           alignment: Alignment.center,
           children: [
             Image.asset('assets/images/explore.png', width: 200, height: 200),
-            Text(''), // Text dihapus karena diganti dengan gambar
+            const Text(''),
           ],
         ),
         centerTitle: true, // Mengatur judul ke tengah
         actions: [
-          // Icon belanja dengan lingkaran dan shadow
           Container(
-            margin: EdgeInsets.only(right: 10.0),
+            margin: const EdgeInsets.only(right: 10.0),
             width: 40,
             height: 40,
             decoration: BoxDecoration(
@@ -63,16 +60,16 @@ class _MainHomeState extends State<MainHome> {
                   color: Colors.black.withOpacity(0.2),
                   spreadRadius: 2,
                   blurRadius: 5,
-                  offset: Offset(0, 3), // Mengubah posisi bayangan
+                  offset: const Offset(0, 3), // Mengubah posisi bayangan
                 ),
               ],
             ),
             child: Material(
-              shape: CircleBorder(),
+              shape: const CircleBorder(),
               clipBehavior: Clip.antiAlias,
               color: Colors.white,
               child: IconButton(
-                icon: Icon(Icons.shopping_cart, color: ColorApp.page),
+                icon: const Icon(Icons.shopping_cart, color: ColorApp.page),
                 onPressed: () {
                   // Aksi ketika tombol belanja ditekan
                 },
@@ -99,11 +96,11 @@ class _MainHomeState extends State<MainHome> {
                           color: Colors.grey.withOpacity(0.2),
                           spreadRadius: 2,
                           blurRadius: 5,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),
-                    child: TextField(
+                    child: const TextField(
                       decoration: InputDecoration(
                         hintText: 'Cari produk',
                         hintStyle: TextStyle(
@@ -115,7 +112,7 @@ class _MainHomeState extends State<MainHome> {
                     ),
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Container(
                   width: 40,
                   height: 40,
@@ -126,16 +123,16 @@ class _MainHomeState extends State<MainHome> {
                         color: Colors.black.withOpacity(0.2),
                         spreadRadius: 2,
                         blurRadius: 5,
-                        offset: Offset(0, 3), // Mengubah posisi bayangan
+                        offset: const Offset(0, 3), // Mengubah posisi bayangan
                       ),
                     ],
                   ),
                   child: Material(
-                    shape: CircleBorder(),
+                    shape: const CircleBorder(),
                     clipBehavior: Clip.antiAlias,
                     color: ColorApp.primary,
                     child: IconButton(
-                      icon: Icon(Icons.list, color: ColorApp.putih),
+                      icon: const Icon(Icons.list, color: ColorApp.putih),
                       onPressed: () {
                         // Aksi ketika tombol filter ditekan
                       },
@@ -144,7 +141,7 @@ class _MainHomeState extends State<MainHome> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
@@ -175,7 +172,7 @@ class _MainHomeState extends State<MainHome> {
                       },
                       child: Container(
                         width: 120,
-                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         decoration: BoxDecoration(
                           color: isSelected ? ColorApp.primary : ColorApp.putih,
                           borderRadius: BorderRadius.circular(10),
@@ -238,7 +235,7 @@ class _MainHomeState extends State<MainHome> {
                     children: [
                       Container(
                         width: 150,
-                        margin: EdgeInsets.symmetric(horizontal: 10),
+                        margin: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: ColorApp.putih,
@@ -248,7 +245,8 @@ class _MainHomeState extends State<MainHome> {
                                   0.2), // Warna dan opacity bayangan
                               spreadRadius: 2, // Jarak penyebaran bayangan
                               blurRadius: 5, // Jarak blur bayangan
-                              offset: Offset(0, 3), // Posisi bayangan (x, y)
+                              offset:
+                                  const Offset(0, 3), // Posisi bayangan (x, y)
                             ),
                           ],
                         ),
@@ -272,7 +270,7 @@ class _MainHomeState extends State<MainHome> {
                       ),
                       Container(
                         width: 150,
-                        margin: EdgeInsets.symmetric(horizontal: 10),
+                        margin: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: ColorApp.putih,
@@ -281,7 +279,7 @@ class _MainHomeState extends State<MainHome> {
                               color: Colors.black.withOpacity(0.2),
                               spreadRadius: 2,
                               blurRadius: 5,
-                              offset: Offset(0, 3),
+                              offset: const Offset(0, 3),
                             ),
                           ],
                         ),
@@ -383,6 +381,46 @@ class _MainHomeState extends State<MainHome> {
                 },
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(top: 30, left: 15, right: 5),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      "New Arrivals", // Corrected the spelling to "Recovery Password"
+                      textAlign: TextAlign.left,
+                      style: GoogleFonts.raleway(
+                        fontSize: 16.0,
+                        fontWeight: AppFont.medium,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      "see all", // Corrected the spelling to "Recovery Password"
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.poppins(
+                        fontSize: 12.0,
+                        fontWeight: AppFont.medium,
+                        color: ColorApp.primary,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                "assets/images/newarival.png",
+                width: MediaQuery.of(context).size.width,
+                height: 120.0,
+                fit: BoxFit.fill,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            )
           ],
         ),
       ),
@@ -391,7 +429,10 @@ class _MainHomeState extends State<MainHome> {
 }
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomeState createState() => _HomeState();
 }
 
@@ -436,63 +477,61 @@ class _HomeState extends State<Home> {
         ),
       ),
       drawer: SafeArea(
-        child: Container(
-          child: ListTileTheme(
-            textColor: Colors.white,
-            iconColor: Colors.white,
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Container(
-                  width: 128.0,
-                  height: 128.0,
-                  margin: const EdgeInsets.only(
-                    top: 24.0,
-                    bottom: 64.0,
-                  ),
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    color: Colors.black26,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Image.asset(
-                    'assets/images/logo.png',
-                  ),
+        child: ListTileTheme(
+          textColor: Colors.white,
+          iconColor: Colors.white,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Container(
+                width: 128.0,
+                height: 128.0,
+                margin: const EdgeInsets.only(
+                  top: 24.0,
+                  bottom: 64.0,
                 ),
-                ListTile(
-                  onTap: () {},
-                  leading: Icon(Icons.home),
-                  title: Text('Home'),
+                clipBehavior: Clip.antiAlias,
+                decoration: BoxDecoration(
+                  color: Colors.black26,
+                  shape: BoxShape.circle,
                 ),
-                ListTile(
-                  onTap: () {},
-                  leading: Icon(Icons.account_circle_rounded),
-                  title: Text('Profile'),
+                child: Image.asset(
+                  'assets/images/logo.png',
                 ),
-                ListTile(
-                  onTap: () {},
-                  leading: Icon(Icons.favorite),
-                  title: Text('Favourites'),
+              ),
+              ListTile(
+                onTap: () {},
+                leading: const Icon(Icons.home),
+                title: const Text('Home'),
+              ),
+              ListTile(
+                onTap: () {},
+                leading: const Icon(Icons.account_circle_rounded),
+                title: const Text('Profile'),
+              ),
+              ListTile(
+                onTap: () {},
+                leading: const Icon(Icons.favorite),
+                title: const Text('Favourites'),
+              ),
+              ListTile(
+                onTap: () {},
+                leading: const Icon(Icons.settings),
+                title: const Text('Settings'),
+              ),
+              const Spacer(),
+              DefaultTextStyle(
+                style: const TextStyle(
+                  fontSize: 12,
+                  color: Colors.white54,
                 ),
-                ListTile(
-                  onTap: () {},
-                  leading: Icon(Icons.settings),
-                  title: Text('Settings'),
-                ),
-                Spacer(),
-                DefaultTextStyle(
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.white54,
-                  ),
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(
-                      vertical: 16.0,
-                    ),
+                child: Container(
+                  margin: const EdgeInsets.symmetric(
+                    vertical: 16.0,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
