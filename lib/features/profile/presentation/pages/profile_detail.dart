@@ -92,26 +92,39 @@ class _ProfileDetailState extends State<ProfileDetail> {
                   hintText: "Sidoarjo, indonesia", labelText: "Location"),
             ),
             Padding(
+              padding: const EdgeInsets.only(top: 5, bottom: 5, left: 15),
+              child: Text(
+                "Mobile Number",
+                style: GoogleFonts.raleway(
+                  fontSize: 16.0,
+                  fontWeight: AppFont.medium,
+                ),
+              ),
+            ),
+            Padding(
               padding: const EdgeInsets.all(10.0),
               child: Center(
-                child: PhoneTextField(
-                  locale: const Locale('en'),
-                  decoration: const InputDecoration(
-                    filled: true,
-                    contentPadding: EdgeInsets.zero,
-                    labelText: "Phone number",
-                    border: InputBorder.none, // Menghilangkan garis bawah
-                    labelStyle: TextStyle(), // Menengahkan label text
+                child: ClipRRect(
+                  borderRadius:
+                      BorderRadius.circular(10), // Atur nilai sesuai keinginan
+                  child: PhoneTextField(
+                    locale: const Locale('en'),
+                    decoration: InputDecoration(
+                      filled: true,
+                      contentPadding: EdgeInsets.only(left: 22),
+                      labelText: "Phone number",
+                      border: InputBorder.none, // Menghilangkan garis bawah
+                    ),
+                    searchFieldInputDecoration: InputDecoration(
+                      filled: false,
+                      suffixIcon: Icon(Icons.search),
+                      hintText: "Search country",
+                    ),
+                    initialCountryCode: "IDN",
+                    onChanged: (phone) {
+                      debugPrint(phone.completeNumber);
+                    },
                   ),
-                  searchFieldInputDecoration: const InputDecoration(
-                    filled: false,
-                    suffixIcon: Icon(Icons.search),
-                    hintText: "Search country",
-                  ),
-                  initialCountryCode: "IDN",
-                  onChanged: (phone) {
-                    debugPrint(phone.completeNumber);
-                  },
                 ),
               ),
             ),

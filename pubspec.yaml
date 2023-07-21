@@ -40,6 +40,8 @@ dependencies:
   google_fonts: ^5.1.0
   font_awesome_flutter: ^10.5.0
   phone_text_field: ^0.0.3
+  carbon_icons: ^0.0.1+2
+  awesome_drawer_bar: ^1.2.0
 
 dev_dependencies:
   flutter_test:
