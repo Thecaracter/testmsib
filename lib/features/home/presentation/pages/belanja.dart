@@ -82,7 +82,7 @@ class _BelanjaState extends State<Belanja> {
                 icon: Stack(
                   alignment: Alignment.center,
                   children: [
-                    const Icon(Icons.shopping_cart, color: ColorApp.page),
+                    const Icon(Icons.shopping_bag, color: ColorApp.page),
                     if (showNotification)
                       Positioned(
                         top: 0,

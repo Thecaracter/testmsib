@@ -15,7 +15,7 @@ class MainHome extends StatefulWidget {
 class _MainHomeState extends State<MainHome> {
   int selectedButtonIndex =
       0; // Index tombol terpilih, awalnya 0 (tombol pertama)
-
+  final bool showNotification = true;
   final List<String> categories = [
     "All Shoes",
     "Outdoor",
@@ -60,7 +60,7 @@ class _MainHomeState extends State<MainHome> {
                   color: Colors.black.withOpacity(0.2),
                   spreadRadius: 2,
                   blurRadius: 5,
-                  offset: const Offset(0, 3), // Mengubah posisi bayangan
+                  offset: const Offset(0, 3),
                 ),
               ],
             ),
@@ -69,7 +69,25 @@ class _MainHomeState extends State<MainHome> {
               clipBehavior: Clip.antiAlias,
               color: Colors.white,
               child: IconButton(
-                icon: const Icon(Icons.shopping_cart, color: ColorApp.page),
+                icon: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    const Icon(Icons.shopping_bag, color: ColorApp.page),
+                    if (showNotification)
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: Container(
+                          width: 10,
+                          height: 10,
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
                 onPressed: () {
                   // Aksi ketika tombol belanja ditekan
                 },
@@ -89,7 +107,7 @@ class _MainHomeState extends State<MainHome> {
                   child: Container(
                     height: 50,
                     decoration: BoxDecoration(
-                      color: ColorApp.abu,
+                      color: ColorApp.abu2,
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
@@ -496,13 +514,8 @@ class _HomeState extends State<Home> {
                   shape: BoxShape.circle,
                 ),
                 child: Image.asset(
-                  'assets/images/logo.png',
+                  'assets/images/profileslider.png',
                 ),
-              ),
-              ListTile(
-                onTap: () {},
-                leading: const Icon(Icons.home),
-                title: const Text('Home'),
               ),
               ListTile(
                 onTap: () {},
@@ -511,25 +524,37 @@ class _HomeState extends State<Home> {
               ),
               ListTile(
                 onTap: () {},
+                leading: const Icon(Icons.shopping_bag),
+                title: const Text('My Chart'),
+              ),
+              ListTile(
+                onTap: () {},
                 leading: const Icon(Icons.favorite),
-                title: const Text('Favourites'),
+                title: const Text('Favourite'),
+              ),
+              ListTile(
+                onTap: () {},
+                leading: const Icon(Icons.fire_truck),
+                title: const Text('Orders'),
+              ),
+              ListTile(
+                onTap: () {},
+                leading: const Icon(Icons.notifications),
+                title: const Text('Notifications'),
               ),
               ListTile(
                 onTap: () {},
                 leading: const Icon(Icons.settings),
                 title: const Text('Settings'),
               ),
-              const Spacer(),
-              DefaultTextStyle(
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: Colors.white54,
-                ),
-                child: Container(
-                  margin: const EdgeInsets.symmetric(
-                    vertical: 16.0,
-                  ),
-                ),
+              const Divider(
+                thickness: 3,
+                color: ColorApp.putih,
+              ),
+              ListTile(
+                onTap: () {},
+                leading: const Icon(Icons.logout),
+                title: const Text('Sign Out'),
               ),
             ],
           ),
