@@ -502,7 +502,7 @@ class _HomeState extends State<Home> {
                   bottom: 64.0,
                 ),
                 clipBehavior: Clip.antiAlias,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Colors.black26,
                   shape: BoxShape.circle,
                 ),

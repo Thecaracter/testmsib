@@ -284,7 +284,7 @@ class _BelanjaState extends State<Belanja> {
                 ),
                 SizedBox(
                     width: MediaQuery.of(context).size.width /
-                        5.5), // Add spacing between the InkWell and ElevatedButton
+                        5.7), // Add spacing between the InkWell and ElevatedButton
                 SizedBox(
                   width: MediaQuery.of(context).size.width /
                       1.8, // Set the width of the container as needed
