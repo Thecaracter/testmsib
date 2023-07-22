@@ -40,7 +40,7 @@ class _RegisterState extends State<Register> {
                   ); // Aksi yang akan dijalankan ketika tombol ditekan
                 },
                 backgroundColor: ColorApp
-                    .abu, // Ganti dengan warna latar belakang yang diinginkan
+                    .abu2, // Ganti dengan warna latar belakang yang diinginkan
                 iconColor:
                     ColorApp.page, // Ganti dengan warna ikon yang diinginkan
               ),

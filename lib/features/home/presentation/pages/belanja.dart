@@ -14,7 +14,6 @@ class Belanja extends StatefulWidget {
 }
 
 class _BelanjaState extends State<Belanja> {
-  @override
   final bool showNotification = true;
   bool isFavorite = false;
 

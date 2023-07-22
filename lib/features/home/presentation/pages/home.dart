@@ -1,5 +1,6 @@
 import 'package:clean_msib/core/constants/color.dart';
 import 'package:clean_msib/core/constants/fontweight.dart';
+import 'package:clean_msib/features/cart/presentation/pages/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -80,7 +81,7 @@ class _MainHomeState extends State<MainHome> {
                         child: Container(
                           width: 10,
                           height: 10,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.red,
                             shape: BoxShape.circle,
                           ),
@@ -89,7 +90,12 @@ class _MainHomeState extends State<MainHome> {
                   ],
                 ),
                 onPressed: () {
-                  // Aksi ketika tombol belanja ditekan
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Cart(),
+                    ),
+                  );
                 },
               ),
             ),

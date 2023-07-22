@@ -9,4 +9,5 @@ class ColorApp {
   static const Color abu2 = Color.fromARGB(255, 234, 238, 240);
   static const Color darkabu = Color(0xff707B81);
   static const Color putih = Color.fromARGB(255, 255, 255, 255);
+  static const Color merah = Color.fromARGB(255, 224, 18, 18);
 }

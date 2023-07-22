@@ -25,35 +25,35 @@ class _BottomNavbarState extends State<BottomNavbar> {
     const Pengingat()
   ];
   final PageStorageBucket bucket = PageStorageBucket();
-  Widget currentScreen = Home();
+  Widget currentScreen = const Home();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageStorage(
-        child: currentScreen,
         bucket: bucket,
+        child: currentScreen,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            currentScreen = Belanja();
+            currentScreen = const Belanja();
             currentTab = 3;
           });
         },
         backgroundColor: currentTab == 3 ? ColorApp.primary : ColorApp.putih,
         child: Icon(
-          CarbonIcons.store,
+          Icons.shopping_bag,
           size: 24.0,
-          color: currentTab == 3 ? ColorApp.putih : Color(0xff87c6e7),
+          color: currentTab == 3 ? ColorApp.putih : const Color(0xff87c6e7),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         notchMargin: 10,
         color: ColorApp.putih,
-        child: Container(
+        child: SizedBox(
           height: 60,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -65,7 +65,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Home();
+                        currentScreen = const Home();
                         currentTab = 0;
                       });
                     },
@@ -76,14 +76,14 @@ class _BottomNavbarState extends State<BottomNavbar> {
                           CarbonIcons.home,
                           color: currentTab == 0
                               ? ColorApp.page
-                              : Color(0xff87c6e7),
+                              : const Color(0xff87c6e7),
                         ),
                         Text(
                           'Home',
                           style: TextStyle(
                             color: currentTab == 0
                                 ? ColorApp.page
-                                : Color(0xff87c6e7),
+                                : const Color(0xff87c6e7),
                           ),
                         )
                       ],
@@ -93,7 +93,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = WishList();
+                        currentScreen = const WishList();
                         currentTab = 1;
                       });
                     },
@@ -104,14 +104,14 @@ class _BottomNavbarState extends State<BottomNavbar> {
                           CarbonIcons.favorite,
                           color: currentTab == 1
                               ? ColorApp.page
-                              : Color(0xff87c6e7),
+                              : const Color(0xff87c6e7),
                         ),
                         Text(
                           'WishList',
                           style: TextStyle(
                             color: currentTab == 1
                                 ? ColorApp.page
-                                : Color(0xff87c6e7),
+                                : const Color(0xff87c6e7),
                           ),
                         )
                       ],
@@ -127,7 +127,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Pengingat();
+                        currentScreen = const Pengingat();
                         currentTab = 4;
                       });
                     },
@@ -138,14 +138,14 @@ class _BottomNavbarState extends State<BottomNavbar> {
                           CarbonIcons.notification,
                           color: currentTab == 4
                               ? ColorApp.page
-                              : Color(0xff87c6e7),
+                              : const Color(0xff87c6e7),
                         ),
                         Text(
                           'Pengingat',
                           style: TextStyle(
                             color: currentTab == 4
                                 ? ColorApp.page
-                                : Color(0xff87c6e7),
+                                : const Color(0xff87c6e7),
                           ),
                         )
                       ],
@@ -155,7 +155,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Profile();
+                        currentScreen = const Profile();
                         currentTab = 5;
                       });
                     },
@@ -166,14 +166,14 @@ class _BottomNavbarState extends State<BottomNavbar> {
                           CarbonIcons.user_avatar,
                           color: currentTab == 5
                               ? ColorApp.page
-                              : Color(0xff87c6e7),
+                              : const Color(0xff87c6e7),
                         ),
                         Text(
                           'Profil',
                           style: TextStyle(
                             color: currentTab == 5
                                 ? ColorApp.page
-                                : Color(0xff87c6e7),
+                                : const Color(0xff87c6e7),
                           ),
                         )
                       ],

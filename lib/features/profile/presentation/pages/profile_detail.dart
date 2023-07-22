@@ -32,7 +32,7 @@ class _ProfileDetailState extends State<ProfileDetail> {
                 children: [
                   BackButtonCustom(
                     onPressed: () {},
-                    backgroundColor: ColorApp.abu,
+                    backgroundColor: ColorApp.abu2,
                     iconColor: ColorApp.page,
                   ),
                   Text(
