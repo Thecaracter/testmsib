@@ -42,6 +42,16 @@ class _CartState extends State<Cart> {
       name: 'Nike Air Max 270 Essential',
       price: 740950,
     ),
+    Product(
+      photoUrl: 'assets/images/sepatu1.png',
+      name: 'Nike Air Max 270 Essential',
+      price: 740950,
+    ),
+    Product(
+      photoUrl: 'assets/images/sepatu1.png',
+      name: 'Nike Air Max 270 Essential',
+      price: 740950,
+    ),
   ];
 
   @override
@@ -72,6 +82,180 @@ class _CartState extends State<Cart> {
       ),
       body: Stack(
         children: [
+          SingleChildScrollView(
+            child: Container(
+              width: double.infinity,
+              color: ColorApp.putih,
+              child: Positioned(
+                top: 30,
+                left: 0,
+                right: 0,
+                bottom: 80,
+                child: FractionallySizedBox(
+                  widthFactor: 0.9,
+                  child: ListView.separated(
+                    padding: const EdgeInsets.only(bottom: 250),
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: dummyProducts.length,
+                    separatorBuilder: (context, index) => SizedBox(height: 8),
+                    itemBuilder: (context, index) {
+                      final productData = dummyProducts[index];
+                      final String? photoUrl = productData.photoUrl;
+                      final String? name = productData.name;
+                      final int? price = productData.price;
+                      int count = productData.count;
+
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: Container(
+                          padding: const EdgeInsets.all(10.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: Slidable(
+                            key: ValueKey(index),
+                            startActionPane: ActionPane(
+                              motion: ScrollMotion(),
+                              children: [
+                                Container(
+                                  width: 50,
+                                  height: 70,
+                                  decoration: BoxDecoration(
+                                    color: ColorApp.primary,
+                                    borderRadius: BorderRadius.circular(8),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.5),
+                                        spreadRadius: 2,
+                                        blurRadius: 3,
+                                        offset: Offset(0, 2),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            productData.count++;
+                                          });
+                                        },
+                                        child: Text(
+                                          "+",
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color: ColorApp.putih,
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(height: 2),
+                                      Text(
+                                        count.toString(),
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          color: ColorApp.putih,
+                                        ),
+                                      ),
+                                      SizedBox(height: 2),
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            if (productData.count > 0) {
+                                              productData.count--;
+                                            }
+                                          });
+                                        },
+                                        child: Text(
+                                          "-",
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color: ColorApp.putih,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                            endActionPane: ActionPane(
+                              motion: ScrollMotion(),
+                              children: [
+                                Container(
+                                  width: 90,
+                                  height: 70,
+                                  decoration: BoxDecoration(
+                                    color: ColorApp.merah,
+                                    borderRadius: BorderRadius.circular(8),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.5),
+                                        spreadRadius: 2,
+                                        blurRadius: 3,
+                                        offset: Offset(0, 2),
+                                      ),
+                                    ],
+                                  ),
+                                  child: const Icon(
+                                    Icons.delete,
+                                    size: 40.0,
+                                    color: ColorApp.putih,
+                                  ),
+                                )
+                              ],
+                            ),
+                            child: ListTile(
+                              leading: photoUrl != null
+                                  ? Container(
+                                      height: 120,
+                                      width: 70,
+                                      decoration: BoxDecoration(
+                                        color: ColorApp.putih,
+                                        borderRadius: BorderRadius.circular(12),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.5),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(0, 3),
+                                          ),
+                                        ],
+                                      ),
+                                      child: Image.asset(photoUrl),
+                                    )
+                                  : Placeholder(),
+                              title: Text(name ?? 'Unknown Product'),
+                              subtitle: Text(
+                                price != null
+                                    ? 'Rp ${_formatCurrency(price)}'
+                                    : 'Price not available',
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ),
+          ),
           PartialOverlayWidget(
             overlayHeight: MediaQuery.of(context).size.height / 3.1,
             child: SingleChildScrollView(
@@ -94,7 +278,7 @@ class _CartState extends State<Cart> {
                             color: Colors.grey,
                           ),
                         ),
-                        const Spacer(),
+                        Spacer(),
                         Text(
                           "Rp 1.753.950",
                           style: TextStyle(
@@ -122,7 +306,7 @@ class _CartState extends State<Cart> {
                             color: Colors.grey,
                           ),
                         ),
-                        const Spacer(),
+                        Spacer(),
                         Text(
                           "Rp 60.200",
                           style: TextStyle(
@@ -194,170 +378,6 @@ class _CartState extends State<Cart> {
                   ),
                   const SizedBox(height: 10),
                 ],
-              ),
-            ),
-          ),
-          Positioned(
-            top: 30,
-            left: 0,
-            right: 0,
-            child: FractionallySizedBox(
-              widthFactor: 0.9,
-              child: ListView.separated(
-                shrinkWrap: true,
-                itemCount: dummyProducts.length,
-                separatorBuilder: (context, index) => SizedBox(height: 8),
-                itemBuilder: (context, index) {
-                  final productData = dummyProducts[index];
-                  final String? photoUrl = productData.photoUrl;
-                  final String? name = productData.name;
-                  final int? price = productData.price;
-                  int count = productData.count;
-
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Container(
-                      padding: const EdgeInsets.all(10.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.2),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: Slidable(
-                        key: ValueKey(index),
-                        startActionPane: ActionPane(
-                          motion: ScrollMotion(),
-                          children: [
-                            Container(
-                              width: 50,
-                              height: 70,
-                              decoration: BoxDecoration(
-                                color: ColorApp.primary,
-                                borderRadius: BorderRadius.circular(8),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey.withOpacity(0.5),
-                                    spreadRadius: 2,
-                                    blurRadius: 3,
-                                    offset: Offset(0, 2),
-                                  ),
-                                ],
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        productData.count++;
-                                      });
-                                    },
-                                    child: Text(
-                                      "+",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: ColorApp.putih,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(height: 2),
-                                  Text(
-                                    count.toString(),
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: ColorApp.putih,
-                                    ),
-                                  ),
-                                  SizedBox(height: 2),
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        if (productData.count > 0) {
-                                          productData.count--;
-                                        }
-                                      });
-                                    },
-                                    child: Text(
-                                      "-",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: ColorApp.putih,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                        endActionPane: ActionPane(
-                          motion: ScrollMotion(),
-                          children: [
-                            Container(
-                              width: 90,
-                              height: 70,
-                              decoration: BoxDecoration(
-                                color: ColorApp.merah,
-                                borderRadius: BorderRadius.circular(8),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey.withOpacity(0.5),
-                                    spreadRadius: 2,
-                                    blurRadius: 3,
-                                    offset: Offset(0, 2),
-                                  ),
-                                ],
-                              ),
-                              child: const Icon(
-                                Icons.delete,
-                                size: 40.0,
-                                color: ColorApp.putih,
-                              ),
-                            )
-                          ],
-                        ),
-                        child: ListTile(
-                          leading: photoUrl != null
-                              ? Container(
-                                  height: 120,
-                                  width: 70,
-                                  decoration: BoxDecoration(
-                                    color: ColorApp.putih,
-                                    borderRadius: BorderRadius.circular(12),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withOpacity(0.5),
-                                        spreadRadius: 2,
-                                        blurRadius: 5,
-                                        offset: Offset(0, 3),
-                                      ),
-                                    ],
-                                  ),
-                                  child: Image.asset(photoUrl),
-                                )
-                              : Placeholder(),
-                          title: Text(name ?? 'Unknown Product'),
-                          subtitle: Text(
-                            price != null
-                                ? 'Rp ${_formatCurrency(price)}'
-                                : 'Price not available',
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                },
               ),
             ),
           ),
