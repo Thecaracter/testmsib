@@ -7,12 +7,13 @@ class InputWidget extends StatelessWidget {
   final String hintText;
   final String labelText;
 
-  InputWidget({required this.hintText, required this.labelText});
+  const InputWidget(
+      {super.key, required this.hintText, required this.labelText});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

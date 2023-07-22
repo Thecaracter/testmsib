@@ -21,7 +21,6 @@ class _OTPTextFieldState extends State<OTPTextField> {
 
   void _onTextChanged() {
     for (int i = 0; i < 4; i++) {
-      print(i);
       if (_controllers[i].text.isNotEmpty) {
         // Jika ada teks di kotak saat tombol ditekan, fokus beralih ke kotak berikutnya (jika ada)
         if (i < 3) {
@@ -47,7 +46,7 @@ class _OTPTextFieldState extends State<OTPTextField> {
         return Container(
           width: 45,
           height: 55,
-          margin: EdgeInsets.symmetric(horizontal: 15),
+          margin: const EdgeInsets.symmetric(horizontal: 15),
           decoration: BoxDecoration(
             color: ColorApp.abu2,
             borderRadius: BorderRadius.circular(8),
@@ -56,7 +55,7 @@ class _OTPTextFieldState extends State<OTPTextField> {
                 color: Colors.grey.withOpacity(0.3),
                 spreadRadius: 2,
                 blurRadius: 5,
-                offset: Offset(0, 3), // changes position of shadow
+                offset: const Offset(0, 3), // changes position of shadow
               ),
             ],
           ),

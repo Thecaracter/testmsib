@@ -7,9 +7,11 @@ class InputPasswordWidget extends StatefulWidget {
   final String hintText;
   final String labelText;
 
-  InputPasswordWidget({required this.hintText, required this.labelText});
+  const InputPasswordWidget(
+      {super.key, required this.hintText, required this.labelText});
 
   @override
+  // ignore: library_private_types_in_public_api
   _InputPasswordWidgetState createState() => _InputPasswordWidgetState();
 }
 
@@ -19,7 +21,7 @@ class _InputPasswordWidgetState extends State<InputPasswordWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -46,7 +48,8 @@ class _InputPasswordWidgetState extends State<InputPasswordWidget> {
                     decoration: InputDecoration(
                       hintText: widget.hintText,
                       border: InputBorder.none,
-                      contentPadding: EdgeInsets.symmetric(horizontal: 20.0),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 20.0),
                       alignLabelWithHint: true,
                     ),
                   ),

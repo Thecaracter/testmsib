@@ -24,6 +24,7 @@ class _BelanjaState extends State<Belanja> {
   }
 
   final CarouselController _carouselController = CarouselController();
+  @override
   Widget build(BuildContext context) {
     final List<String> imgList = [
       'assets/images/sepatu1.png',
@@ -89,7 +90,7 @@ class _BelanjaState extends State<Belanja> {
                         child: Container(
                           width: 10,
                           height: 10,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.red,
                             shape: BoxShape.circle,
                           ),
@@ -107,7 +108,7 @@ class _BelanjaState extends State<Belanja> {
       ),
       body: ListView(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -150,8 +151,8 @@ class _BelanjaState extends State<Belanja> {
                   enableInfiniteScroll: true,
                   reverse: false,
                   autoPlay: true,
-                  autoPlayInterval: Duration(seconds: 3),
-                  autoPlayAnimationDuration: Duration(milliseconds: 800),
+                  autoPlayInterval: const Duration(seconds: 3),
+                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
                   autoPlayCurve: Curves.fastOutSlowIn,
                   enlargeCenterPage: true,
                   enlargeFactor: 0.3,

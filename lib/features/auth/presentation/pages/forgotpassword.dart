@@ -71,7 +71,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               padding: const EdgeInsets.all(5.0),
               child: InputWidget(hintText: "XXXXXX", labelText: ""),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Center(
@@ -88,13 +88,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       return CustomAlertDialog();
                     },
                   );
-
-                  // Setelah dialog ditutup, lakukan navigasi ke halaman OTP
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            OtpScreen()), // Ganti 'OTPPage()' dengan halaman OTP yang sesuai
+                    MaterialPageRoute(builder: (context) => const OtpScreen()),
                   );
                 },
               ),

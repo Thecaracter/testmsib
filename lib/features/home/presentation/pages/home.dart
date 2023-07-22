@@ -323,7 +323,7 @@ class _MainHomeState extends State<MainHome> {
                                     borderRadius: BorderRadius.only(
                                         topLeft: Radius.circular(10)),
                                   ),
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.add,
                                     color: Colors.white,
                                     size: 24,
@@ -485,12 +485,7 @@ class _HomeState extends State<Home> {
       // openScale: 1.0,
       disabledGestures: false,
       childDecoration: const BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(16)),
-      ),
-      child: Scaffold(
-        body: MainHome(
-          ontap: _handleMenuButtonPressed,
-        ),
+        borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
       drawer: SafeArea(
         child: ListTileTheme(
@@ -507,7 +502,7 @@ class _HomeState extends State<Home> {
                   bottom: 64.0,
                 ),
                 clipBehavior: Clip.antiAlias,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.black26,
                   shape: BoxShape.circle,
                 ),
@@ -556,6 +551,11 @@ class _HomeState extends State<Home> {
               ),
             ],
           ),
+        ),
+      ),
+      child: Scaffold(
+        body: MainHome(
+          ontap: _handleMenuButtonPressed,
         ),
       ),
     );

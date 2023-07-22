@@ -7,7 +7,8 @@ class CircularButtonIcon extends StatelessWidget {
   final bool hasBorder;
   final TextStyle textStyle;
 
-  CircularButtonIcon({
+  const CircularButtonIcon({
+    super.key,
     required this.icon,
     required this.backgroundColor,
     required this.size,

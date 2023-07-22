@@ -7,6 +7,7 @@ import 'package:clean_msib/core/widget/custombutton.dart';
 import 'package:clean_msib/core/widget/cutomdropdown.dart';
 import 'package:clean_msib/features/cart/presentation/widgets/dashdivider.dart';
 import 'package:clean_msib/features/cart/presentation/widgets/partialoverlaywidget.dart';
+import 'package:clean_msib/features/home/presentation/pages/bottomnav.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -39,6 +40,66 @@ class _CartDetailState extends State<CartDetail> {
     },
     // Tambahkan metode pembayaran lain jika diperlukan
   ];
+  void _showAlertDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+                20), // Adjust the radius as per your preference
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.asset(
+                'assets/images/dialogimage.png',
+                width: 100,
+                height: 100,
+              ),
+              const SizedBox(height: 20),
+              Text(
+                "Your Payment Is \nSuccessful",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.raleway(
+                  fontSize: 20,
+                  fontWeight: AppFont.medium,
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BottomNavbar(),
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                ),
+                child: const Text("Back To Shopping"),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   final List<String> dropdownOptions = [
     'Rungkut, Kota Surabaya, Jawa Timur',
     'Option 2',
@@ -240,9 +301,9 @@ class _CartDetailState extends State<CartDetail> {
                               fontWeight: AppFont.medium,
                             ),
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Container(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: DropdownButtonHideUnderline(
                               child: DropdownButton<String>(
                                 value: selectedPaymentMethod,
@@ -265,7 +326,7 @@ class _CartDetailState extends State<CartDetail> {
                                       ),
                                       title: Text(
                                         payment['method'],
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w500,
                                           color: Colors.black,
@@ -397,13 +458,8 @@ class _CartDetailState extends State<CartDetail> {
                     text: "Checkout",
                     backgroundColor: Colors.blue,
                     textColor: Colors.white,
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const CartDetail(),
-                        ),
-                      );
+                    onPressed: () async {
+                      _showAlertDialog(context);
                     },
                   ),
                   const SizedBox(height: 10),

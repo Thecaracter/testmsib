@@ -8,6 +8,7 @@ class EditableProfilePhoto extends StatelessWidget {
   final VoidCallback onEditPressed;
 
   const EditableProfilePhoto({
+    super.key,
     this.photoAsset,
     required this.photoSize,
     this.iconData = true, // Berikan nilai default true

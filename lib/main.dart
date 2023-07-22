@@ -1,4 +1,3 @@
-import 'package:clean_msib/features/cart/presentation/pages/cartdetail.dart';
 import 'package:clean_msib/features/intro/presentation/pages/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Import SystemChrome
@@ -18,9 +17,9 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
 
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CartDetail(),
+      home: Splash(),
     );
   }
 }

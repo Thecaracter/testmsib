@@ -98,12 +98,13 @@ class _CartState extends State<Cart> {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: dummyProducts.length,
-                    separatorBuilder: (context, index) => SizedBox(height: 8),
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(height: 8),
                     itemBuilder: (context, index) {
                       final productData = dummyProducts[index];
-                      final String? photoUrl = productData.photoUrl;
-                      final String? name = productData.name;
-                      final int? price = productData.price;
+                      final String photoUrl = productData.photoUrl;
+                      final String name = productData.name;
+                      final int price = productData.price;
                       int count = productData.count;
 
                       return Padding(
@@ -118,14 +119,14 @@ class _CartState extends State<Cart> {
                                 color: Colors.black.withOpacity(0.2),
                                 spreadRadius: 2,
                                 blurRadius: 5,
-                                offset: Offset(0, 3),
+                                offset: const Offset(0, 3),
                               ),
                             ],
                           ),
                           child: Slidable(
                             key: ValueKey(index),
                             startActionPane: ActionPane(
-                              motion: ScrollMotion(),
+                              motion: const ScrollMotion(),
                               children: [
                                 Container(
                                   width: 50,
@@ -138,7 +139,7 @@ class _CartState extends State<Cart> {
                                         color: Colors.grey.withOpacity(0.5),
                                         spreadRadius: 2,
                                         blurRadius: 3,
-                                        offset: Offset(0, 2),
+                                        offset: const Offset(0, 2),
                                       ),
                                     ],
                                   ),
@@ -153,7 +154,7 @@ class _CartState extends State<Cart> {
                                             productData.count++;
                                           });
                                         },
-                                        child: Text(
+                                        child: const Text(
                                           "+",
                                           style: TextStyle(
                                             fontSize: 16,
@@ -162,16 +163,16 @@ class _CartState extends State<Cart> {
                                           ),
                                         ),
                                       ),
-                                      SizedBox(height: 2),
+                                      const SizedBox(height: 2),
                                       Text(
                                         count.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold,
                                           color: ColorApp.putih,
                                         ),
                                       ),
-                                      SizedBox(height: 2),
+                                      const SizedBox(height: 2),
                                       GestureDetector(
                                         onTap: () {
                                           setState(() {
@@ -180,7 +181,7 @@ class _CartState extends State<Cart> {
                                             }
                                           });
                                         },
-                                        child: Text(
+                                        child: const Text(
                                           "-",
                                           style: TextStyle(
                                             fontSize: 16,
@@ -195,7 +196,7 @@ class _CartState extends State<Cart> {
                               ],
                             ),
                             endActionPane: ActionPane(
-                              motion: ScrollMotion(),
+                              motion: const ScrollMotion(),
                               children: [
                                 Container(
                                   width: 90,
@@ -208,7 +209,7 @@ class _CartState extends State<Cart> {
                                         color: Colors.grey.withOpacity(0.5),
                                         spreadRadius: 2,
                                         blurRadius: 3,
-                                        offset: Offset(0, 2),
+                                        offset: const Offset(0, 2),
                                       ),
                                     ],
                                   ),
@@ -233,13 +234,13 @@ class _CartState extends State<Cart> {
                                             color: Colors.grey.withOpacity(0.5),
                                             spreadRadius: 2,
                                             blurRadius: 5,
-                                            offset: Offset(0, 3),
+                                            offset: const Offset(0, 3),
                                           ),
                                         ],
                                       ),
                                       child: Image.asset(photoUrl),
                                     )
-                                  : Placeholder(),
+                                  : const Placeholder(),
                               title: Text(name ?? 'Unknown Product'),
                               subtitle: Text(
                                 price != null

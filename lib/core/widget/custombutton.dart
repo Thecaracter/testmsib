@@ -7,7 +7,8 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
   final FontWeight fontWeight; // Tambahkan argumen untuk fontWeight
 
-  CustomButton({
+  const CustomButton({
+    super.key,
     required this.text,
     required this.backgroundColor,
     required this.textColor,
@@ -25,7 +26,7 @@ class CustomButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
         minimumSize: Size(buttonWidth, 50), // Atur ukuran minimal tombol
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(13), // Atur radius sudut tombol
         ),

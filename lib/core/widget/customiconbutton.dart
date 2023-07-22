@@ -11,7 +11,8 @@ class CustomIconButton extends StatelessWidget {
   final ImageProvider?
       iconImage; // Add the ImageProvider argument for the icon image
 
-  CustomIconButton({
+  const CustomIconButton({
+    super.key,
     required this.text,
     required this.backgroundColor,
     required this.textColor,
@@ -30,7 +31,7 @@ class CustomIconButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
         minimumSize: Size(buttonWidth, 50),
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(13),
         ),
@@ -49,7 +50,7 @@ class CustomIconButton extends StatelessWidget {
               width: 20,
               height: 20,
             ),
-          SizedBox(width: 15),
+          const SizedBox(width: 15),
           Text(
             text,
             style: GoogleFonts.raleway(

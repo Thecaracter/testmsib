@@ -5,7 +5,8 @@ class PartialOverlayWidget extends StatelessWidget {
   final Widget child;
   final double overlayHeight;
 
-  PartialOverlayWidget({required this.child, this.overlayHeight = 100.0});
+  const PartialOverlayWidget(
+      {super.key, required this.child, this.overlayHeight = 100.0});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class PartialOverlayWidget extends StatelessWidget {
               color: Colors.black.withOpacity(0.2),
               spreadRadius: 0.2,
               blurRadius: 5,
-              offset: Offset(
+              offset: const Offset(
                   0, -3), // Adjust the Y-offset to create a shadow on top
             ),
           ],

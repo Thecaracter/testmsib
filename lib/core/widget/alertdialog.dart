@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomAlertDialog extends StatelessWidget {
+  const CustomAlertDialog({super.key});
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -37,7 +39,7 @@ class CustomAlertDialog extends StatelessWidget {
                   GoogleFonts.raleway(fontWeight: AppFont.bold, fontSize: 16),
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Center(
             child: Text(
               'We have send password recovery code in your email',
